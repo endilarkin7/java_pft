@@ -6,12 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-import ru.stqa.pft.addressbook.appmanager.Model.NavigationHelper;
-import ru.stqa.pft.addressbook.appmanager.Model.SessionHelper;
+import ru.stqa.pft.addressbook.appmanager.model.ContactHelper;
+import ru.stqa.pft.addressbook.appmanager.model.NavigationHelper;
+import ru.stqa.pft.addressbook.appmanager.model.SessionHelper;
 
 import java.util.concurrent.TimeUnit;
-
-import static org.openqa.selenium.remote.BrowserType.IE;
 
 public class ApplicationManager {
     private String browser;
@@ -19,6 +18,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
+    private ContactHelper contactHelper;
 
     public ApplicationManager(String browser) {
     this.browser = browser;
@@ -35,9 +35,10 @@ public class ApplicationManager {
             wd = new InternetExplorerDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        // wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
+        contactHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
@@ -47,13 +48,11 @@ public class ApplicationManager {
         wd.quit();
     }
 
-    public GroupHelper getGroupHelper() {
-        return groupHelper;
-    }
+    public GroupHelper getGroupHelper() { return groupHelper; }
 
-    public NavigationHelper getNavigationHelper() {
-        return navigationHelper;
-    }
+    public NavigationHelper getNavigationHelper() { return navigationHelper;  }
+
+    public ContactHelper getContactHelper() { return contactHelper; }
 
     public boolean isAlertPresent() {
         try {

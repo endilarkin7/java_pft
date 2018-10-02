@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.appmanager.Model;
+package ru.stqa.pft.addressbook.appmanager.model;
 
 public class GroupData {       //GroupData - обект имеет 3 атрибута
     private final String name;    // name -  1 атрибутт

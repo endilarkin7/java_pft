@@ -1,8 +1,7 @@
-package ru.stqa.pft.addressbook.appmanager.Model;
+package ru.stqa.pft.addressbook.appmanager.model;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.appmanager.HelperBase;
 
 public class NavigationHelper extends HelperBase {
@@ -11,7 +10,11 @@ public class NavigationHelper extends HelperBase {
     super(wd);
     }
 
-    public void gotoGroupPage() {
-        click(By.linkText("groups"));
+    public void gotoGroupPage() { click(By.linkText("groups"));
     }
+    public void gotoHomePage() { click(By.id("logo"));
+
+
+    }
+
 }

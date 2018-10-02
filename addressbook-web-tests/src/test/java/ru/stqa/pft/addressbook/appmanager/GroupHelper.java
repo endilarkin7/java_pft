@@ -2,33 +2,22 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.pft.addressbook.appmanager.Model.GroupData;
+import ru.stqa.pft.addressbook.appmanager.model.GroupData;
 
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(WebDriver wd) {
-        super(wd);
-    }
+    public GroupHelper(WebDriver wd) { super(wd);  }
 
-    public void returntoGroupPage() {
+    public void returntoGroupPage() { click(By.linkText("group page"));  }
 
-        click(By.linkText("group page"));
-    }
-
-    public void submitGroupCreation() {
-        click(By.name("submit"));
-    }
+    public void submitGroupCreation() { click(By.name("submit")); }
 
     public void fillGroupForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getName());
         type(By.name("group_header"), groupData.getHeader());
-        type(By.name("group_footer"), groupData.getFooter());
-    }
+        type(By.name("group_footer"), groupData.getFooter());  }
 
-    public void initGroupCreation() {
-        click(By.name("new"));
-    }
+    public void initGroupCreation() { click(By.id("logo")); }
 
     public void deleteSelectedGroups() {
         click(By.name("delete"));
@@ -38,12 +27,11 @@ public class GroupHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
-    public void initGroupModification() {
-        click(By.name("edit"));
-
-    }
+    public void initGroupModification() { click(By.name("edit"));  }
 
     public void submitGroupModification() {
         click(By.name("update"));
     }
+
+
 }
