@@ -24,4 +24,6 @@ public class NavigationHelper extends HelperBase {
     }
     click(By.id("logo"));  //так як не знайшов елемент, то клікне
     }
-}
+
+      }
+
