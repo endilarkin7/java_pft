@@ -23,5 +23,10 @@ public class HelperBase {
         }
 
 
-
+    protected boolean isElementPresent(By locator) {
+        try {
+            wd.findElement(locator) ; // попытка поиска елемента
+            return true; // Елемент есть и вернет значение true
+        } catch (NoSuchElementException ex) { //Исключ озн. НЕТ ТАКОГО ЕЛЕМЕНТА
+            return false; } }
 }
