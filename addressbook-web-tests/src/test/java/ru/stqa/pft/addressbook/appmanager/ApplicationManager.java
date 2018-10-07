@@ -21,10 +21,7 @@ public class ApplicationManager {
     private ContactHelper contactHelper;
 
     public ApplicationManager(String browser) {
-    this.browser = browser;
-
-    }
-
+    this.browser = browser; }
 
     public void init() { //Метод РОБИТЬ ВХІДя
         if (browser == (BrowserType.FIREFOX)) {

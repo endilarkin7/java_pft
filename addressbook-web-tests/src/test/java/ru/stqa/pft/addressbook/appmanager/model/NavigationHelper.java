@@ -22,8 +22,6 @@ public class NavigationHelper extends HelperBase {
     if (isElementPresent(By.id("maintable"))) {
         return; // якщо не знайшовся елемент то робити нічого не треба
     }
-    click(By.id("logo"));  //так як не знайшов елемент, то клікне
-    }
-
-      }
+    click(By.id("logo"));  //так як не знайшов елемент, то клікне }
+    }}
 

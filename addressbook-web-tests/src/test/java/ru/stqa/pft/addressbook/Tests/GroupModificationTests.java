@@ -4,17 +4,27 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.appmanager.model.GroupData;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class GroupModificationTests extends TestBase{
 
-@Test
+    @Test
     public void  testGroupModification() {
     app.getNavigationHelper().gotoGroupPage();
     if (! app.getGroupHelper().isThereAGroup()) { //Щоб удалити тест, треба щоб він був, тому створюємо
-        app.getGroupHelper().createGroup(new GroupData("test1",null,null));
-    }app.getGroupHelper().selectGroup(0);
+        app.getGroupHelper().createGroup(new GroupData("test1",null,null)); }
+    List<GroupData> before = app.getGroupHelper().getGroupList();
+    app.getGroupHelper().selectGroup(before.size() - 1  );
     app.getGroupHelper().initGroupModification();
-    app.getGroupHelper().fillGroupForm(new GroupData(null, "test2", "test3"));  // Заполнить форму какимыта данными
+    GroupData group = new GroupData(before.get(before.size() - 1).getId(),"test1", "test2", "test3" );
+    app.getGroupHelper().fillGroupForm(group);  // Заполнить форму какимыта данными
     app.getGroupHelper().submitGroupModification();
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size() ,before.size());
 
+    before.remove(before.size() - 1);
+    before.add(group);
+    Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
 }
 }
