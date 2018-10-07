@@ -10,7 +10,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
     }
 
-    public void gotoGroupPage() {
+    public void GroupPage() {
     if (isElementPresent(By.tagName("h1"))  //провіряємо НАЯВНІСТЬ Заголовка
         && wd.findElement(By.tagName("h1")).getText().equals("Groups")
         && isElementPresent(By.name("new"))) {
