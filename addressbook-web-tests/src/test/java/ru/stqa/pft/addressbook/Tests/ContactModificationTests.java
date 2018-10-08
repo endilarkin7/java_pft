@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.Tests;
+/* package ru.stqa.pft.addressbook.Tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +8,7 @@ import ru.stqa.pft.addressbook.appmanager.model.GroupData;
 
 public class ContactModificationTests extends TestBase {
 
-    @BeforeMethod
+    @BeforeMethod (enabled = false)
     public void ensurePreconditions() {
         app.goTo().gotoHomePage();
         if (! app.getContactHelper().isThereAContact()) {
@@ -27,4 +27,4 @@ public class ContactModificationTests extends TestBase {
         app.getContactHelper().returnToHomePage();
         int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after,before);
-}}
+}} */

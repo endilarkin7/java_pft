@@ -3,15 +3,10 @@ package ru.stqa.pft.addressbook.appmanager.model;
 import java.util.Objects;
 
 public class GroupData {       //GroupData - обект имеет 3 атрибута
-    private int id;
-    private final String name;    // name -  1 атрибутт
-    private final String header;
-    private final String footer;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    private int id = Integer.MAX_VALUE;
+    private  String name;    // name -  1 атрибутт
+    private  String header;
+    private  String footer;
 
     public int getId() {
         return id;
@@ -27,20 +22,23 @@ public class GroupData {       //GroupData - обект имеет 3 атриб�
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
-    }
+        return Objects.hash(name); }
 
-    public GroupData(String name, String header, String footer) {
-        this.id = Integer.MAX_VALUE;
+    public GroupData withName(String name) {
         this.name = name;
-        this.header = header;
-        this.footer = footer; }
+        return this;}
 
-    public GroupData(int id, String name, String header, String footer) {
+    public GroupData withHeader(String header) {
+        this.header = header;
+        return this;}
+
+    public GroupData withFooter(String footer) {
+        this.footer = footer;
+        return this;}
+
+    public GroupData withId(int id) {
         this.id = id;
-        this.name = name;
-        this.header = header;
-        this.footer = footer; }
+        return this;}
 
     public String getName() {
         return name;
